@@ -6,11 +6,11 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Industries", href: "#industries" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Industries", href: "/industries" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -58,7 +58,7 @@ export default function Navbar() {
 
         {/* CTA button */}
         <Link
-          href="#contact"
+          href="/contact"
           className="hidden items-center rounded bg-[#c01130] px-5 py-2.5 text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#8c1b2f] lg:inline-flex whitespace-nowrap"
         >
           REQUEST A CONSULTATION
@@ -91,7 +91,7 @@ export default function Navbar() {
             ))}
             <li>
               <Link
-                href="#contact"
+                href="/contact"
                 className="inline-flex items-center rounded bg-[#c01130] px-5 py-2.5 text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#8c1b2f]"
                 onClick={() => setMenuOpen(false)}
               >

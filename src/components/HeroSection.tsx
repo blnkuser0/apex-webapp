@@ -39,13 +39,13 @@ export default function HeroSection() {
 
             <div className="flex flex-col justify-center gap-3 sm:flex-row">
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex h-12 items-center justify-center gap-3 rounded bg-white px-5 text-[12px] font-black uppercase tracking-tight text-[#59202b] transition-colors hover:bg-[#edebf7]"
               >
                 Lets Get Started <ArrowRight size={18} strokeWidth={3} />
               </a>
               <a
-                href="#about"
+                href="/about"
                 className="inline-flex h-12 items-center justify-center gap-3 rounded border-2 border-white px-5 text-[12px] font-black uppercase tracking-tight text-white transition-colors hover:bg-white hover:text-[#59202b]"
               >
                 View Company Profile <ArrowRight size={18} strokeWidth={3} />

@@ -18,11 +18,11 @@ const solutions = [
 ];
 
 const quickLinks = [
-  { label: "About Us", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Industries", href: "#industries" },
-  { label: "News & Insights", href: "#" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "About Us", href: "/about" },
+  { label: "Projects", href: "/projects" },
+  { label: "Industries", href: "/industries" },
+  { label: "News & Insights", href: "/news-insights" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export default function Footer() {
@@ -55,7 +55,7 @@ export default function Footer() {
               {solutions.map((solution) => (
                 <Link
                   key={solution}
-                  href="#solutions"
+                  href="/solutions"
                   className="text-[11px] leading-snug text-white/75 transition-colors hover:text-white"
                 >
                   {solution}

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import {
   Shield,
   Phone,
@@ -123,12 +125,12 @@ export default function SolutionsSection() {
                 <p className="text-[10px] sm:text-[11px] text-gray-500 leading-relaxed flex-1 hidden sm:block">
                   {sol.description}
                 </p>
-                <a
-                  href="#contact"
+                <Link
+                  href="/contact"
                   className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-[#c01130] hover:gap-2 transition-all"
                 >
                   LEARN MORE <span aria-hidden>→</span>
-                </a>
+                </Link>
               </div>
             );
           })}

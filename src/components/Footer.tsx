@@ -31,18 +31,20 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-10">
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-8">
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-            <div className="mb-2 flex items-center justify-center gap-2 lg:-ml-6 lg:justify-start">
-              <Image
-                src="/logo/test_processed.png"
-                alt="Apex Innovations logo"
-                width={680}
-                height={118}
-                className="block h-auto w-full max-w-64 object-contain sm:max-w-80 lg:max-w-110"
-              />
+            <div className="w-full max-w-56 sm:max-w-80 lg:mx-0 lg:max-w-none">
+              <div className="mb-2 flex items-center justify-start gap-2 lg:-ml-6">
+                <Image
+                  src="/logo/test_processed.png"
+                  alt="Apex Innovations logo"
+                  width={680}
+                  height={118}
+                  className="block h-auto w-full max-w-48 object-contain sm:max-w-90 lg:max-w-120"
+                />
+              </div>
+              <p className="mt-1 w-full text-left text-[8px] font-semibold uppercase tracking-normal text-white lg:-ml-8 lg:max-w-80 lg:text-left lg:text-[9px] lg:whitespace-nowrap">
+                Powerhouse of Transformative Solutions
+              </p>
             </div>
-            <p className="mt-1 w-full max-w-64 text-center text-[8px] font-semibold uppercase tracking-normal text-white sm:max-w-80 lg:-ml-8 lg:max-w-80 lg:text-left lg:text-[9px] lg:whitespace-nowrap">
-              Powerhouse of Transformative Solutions
-            </p>
           </div>
 
           <div className="col-span-2 lg:col-span-2">

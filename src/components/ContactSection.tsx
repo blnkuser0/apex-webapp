@@ -70,6 +70,13 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="relative py-16 lg:py-20 bg-[#c01130] overflow-hidden">
+      {/* Circuit board background */}
+      <img
+        src="/circuit-bg.svg"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover opacity-40 pointer-events-none select-none"
+      />
       {/* Background decorative shape */}
       <div className="absolute right-0 bottom-0 w-64 h-64 opacity-10 pointer-events-none">
         <div

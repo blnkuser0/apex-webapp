@@ -43,33 +43,5 @@ body {
     clip-path: polygon(0 0, 100% 0, 76% 100%, 0% 100%);
   }
 
-  .hero-slant-shadow,
-  .hero-slant-line {
-    position: absolute;
-    inset: 0;
-    display: block;
-    pointer-events: none;
-  }
 
-  .hero-slant-shadow {
-    z-index: 24;
-    background: rgba(61, 20, 29, 0.72);
-    clip-path: polygon(
-      calc(50vw + 4px) 0,
-      calc(50vw + 34px) 0,
-      calc(38vw + 34px) 100%,
-      calc(38vw + 4px) 100%
-    );
-  }
-
-  .hero-slant-line {
-    z-index: 25;
-    background: #ffffff;
-    clip-path: polygon(
-      calc(50vw - 14px) 0,
-      calc(50vw + 2px) 0,
-      calc(38vw + 2px) 100%,
-      calc(38vw - 14px) 100%
-    );
-  }
 }

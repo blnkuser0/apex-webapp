@@ -26,7 +26,7 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#111111] text-gray-400">
+    <footer className="bg-[#c01130] text-white/75">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-10">
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-8">
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
@@ -36,7 +36,7 @@ export default function Footer() {
                   A
                 </span>
                 <span className="absolute bottom-1 right-0 h-8 w-3 rotate-45 bg-[#0f9f6e]" />
-                <span className="absolute bottom-1.5 right-1 h-5 w-3 rotate-45 bg-[#111111]" />
+                <span className="absolute bottom-1.5 right-1 h-5 w-3 rotate-45 bg-[#c01130]" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="text-[22px] font-black tracking-tight text-white">
@@ -47,7 +47,7 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-gray-600">
+            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-white/50">
               Powerhouse of Transformative Solutions
             </p>
           </div>
@@ -61,7 +61,7 @@ export default function Footer() {
                 <Link
                   key={solution}
                   href="#solutions"
-                  className="text-[11px] leading-snug text-gray-400 transition-colors hover:text-[#c01130]"
+                  className="text-[11px] leading-snug text-white/75 transition-colors hover:text-white"
                 >
                   {solution}
                 </Link>
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-[11px] text-gray-400 transition-colors hover:text-[#c01130]"
+                    className="text-[11px] text-white/75 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -93,22 +93,22 @@ export default function Footer() {
             </h4>
             <ul className="flex flex-col gap-2">
               <li className="flex items-start gap-1.5">
-                <MapPin size={11} className="mt-0.5 shrink-0 text-[#c01130]" />
+                <MapPin size={11} className="mt-0.5 shrink-0 text-white" />
                 <span className="text-[11px] leading-snug">
                   3 Imperial Street, Brgy. E. Rodriguez, Cubao, Quezon City,
                   1105
                 </span>
               </li>
               <li className="flex items-center gap-1.5">
-                <Phone size={11} className="shrink-0 text-[#c01130]" />
+                <Phone size={11} className="shrink-0 text-white" />
                 <span className="text-[11px]">63+ 00000000000</span>
               </li>
               <li className="flex items-center gap-1.5">
-                <Mail size={11} className="shrink-0 text-[#c01130]" />
+                <Mail size={11} className="shrink-0 text-white" />
                 <span className="text-[11px]">info@apexinnovations.ph</span>
               </li>
               <li className="flex items-center gap-1.5">
-                <Globe size={11} className="shrink-0 text-[#c01130]" />
+                <Globe size={11} className="shrink-0 text-white" />
                 <span className="text-[11px]">www.apexinnovations.ph</span>
               </li>
             </ul>
@@ -119,7 +119,7 @@ export default function Footer() {
               Office Hours
             </h4>
             <div className="flex items-start gap-1.5">
-              <Clock size={11} className="mt-0.5 shrink-0 text-[#c01130]" />
+                <Clock size={11} className="mt-0.5 shrink-0 text-white" />
               <div>
                 <p className="text-[11px] font-semibold text-white">
                   Monday - Friday
@@ -131,8 +131,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/5 py-3">
-        <p className="text-center text-[11px] text-gray-600">
+      <div className="border-t border-white/20 py-3">
+        <p className="text-center text-[11px] text-white/60">
           Copyright {new Date().getFullYear()} Apex Innovations Inc. All rights
           reserved.
         </p>

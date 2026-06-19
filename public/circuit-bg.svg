@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <filter id="g1" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="g2" x="-120%" y="-120%" width="340%" height="340%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- BASE TRACES: subtle grid-aligned circuit traces -->
+  <g stroke="rgba(255,255,255,0.16)" stroke-width="1.2" fill="none" stroke-linecap="square" stroke-linejoin="miter">
+    <polyline points="0,80 400,80 400,160 800,160"/>
+    <polyline points="240,0 240,80"/>
+    <polyline points="80,0 80,160 0,160"/>
+    <polyline points="480,0 480,80 560,80 560,160 640,160 640,80 720,80 720,0"/>
+    <polyline points="0,240 160,240 160,320 480,320 480,240 640,240"/>
+    <polyline points="400,240 400,160"/>
+    <polyline points="560,320 560,400 720,400 720,480"/>
+    <polyline points="0,320 160,320"/>
+    <polyline points="400,320 400,400 160,400 160,480 80,480 80,560 0,560"/>
+    <polyline points="0,480 80,480"/>
+    <polyline points="240,480 240,560 400,560"/>
+    <polyline points="160,560 160,600"/>
+    <polyline points="480,480 480,560 640,560 640,480 720,480 720,560 800,560"/>
+    <polyline points="320,480 320,560"/>
+    <polyline points="240,480 320,480 480,480"/>
+    <polyline points="720,160 720,240 800,240"/>
+    <polyline points="800,320 720,320 720,400"/>
+    <polyline points="640,560 640,600"/>
+    <polyline points="320,560 320,600"/>
+    <polyline points="0,400 160,400"/>
+    <polyline points="560,480 560,560"/>
+    <polyline points="800,400 720,400"/>
+    <polyline points="0,560 0,600"/>
+    <polyline points="800,480 800,560"/>
+  </g>
+
+  <!-- BRIGHT ACCENT TRACES with glow -->
+  <g stroke="rgba(255,210,190,0.32)" stroke-width="1.6" fill="none" stroke-linecap="round" filter="url(#g1)">
+    <polyline points="0,80 400,80 400,160 800,160"/>
+    <polyline points="480,240 640,240 640,160"/>
+    <polyline points="480,480 640,480 640,560 800,560"/>
+    <polyline points="560,320 560,400 720,400 720,480"/>
+    <polyline points="0,480 80,480 80,560"/>
+  </g>
+
+  <!-- BASE NODES at intersections -->
+  <g fill="rgba(255,255,255,0.30)">
+    <circle cx="80" cy="160" r="2.5"/>
+    <circle cx="240" cy="80" r="2.5"/>
+    <circle cx="400" cy="80" r="2.5"/>
+    <circle cx="400" cy="160" r="2.5"/>
+    <circle cx="480" cy="80" r="2.5"/>
+    <circle cx="560" cy="80" r="2.5"/>
+    <circle cx="560" cy="160" r="2.5"/>
+    <circle cx="640" cy="80" r="2.5"/>
+    <circle cx="640" cy="160" r="2.5"/>
+    <circle cx="640" cy="240" r="2.5"/>
+    <circle cx="720" cy="80" r="2.5"/>
+    <circle cx="720" cy="160" r="2.5"/>
+    <circle cx="720" cy="240" r="2.5"/>
+    <circle cx="720" cy="320" r="2.5"/>
+    <circle cx="720" cy="400" r="2.5"/>
+    <circle cx="720" cy="480" r="2.5"/>
+    <circle cx="720" cy="560" r="2.5"/>
+    <circle cx="160" cy="240" r="2.5"/>
+    <circle cx="160" cy="320" r="2.5"/>
+    <circle cx="160" cy="400" r="2.5"/>
+    <circle cx="160" cy="480" r="2.5"/>
+    <circle cx="160" cy="560" r="2.5"/>
+    <circle cx="80" cy="480" r="2.5"/>
+    <circle cx="80" cy="560" r="2.5"/>
+    <circle cx="240" cy="480" r="2.5"/>
+    <circle cx="240" cy="560" r="2.5"/>
+    <circle cx="320" cy="480" r="2.5"/>
+    <circle cx="320" cy="560" r="2.5"/>
+    <circle cx="400" cy="240" r="2.5"/>
+    <circle cx="400" cy="320" r="2.5"/>
+    <circle cx="400" cy="400" r="2.5"/>
+    <circle cx="400" cy="560" r="2.5"/>
+    <circle cx="480" cy="240" r="2.5"/>
+    <circle cx="480" cy="320" r="2.5"/>
+    <circle cx="480" cy="480" r="2.5"/>
+    <circle cx="480" cy="560" r="2.5"/>
+    <circle cx="560" cy="320" r="2.5"/>
+    <circle cx="560" cy="400" r="2.5"/>
+    <circle cx="560" cy="480" r="2.5"/>
+    <circle cx="560" cy="560" r="2.5"/>
+    <circle cx="640" cy="480" r="2.5"/>
+    <circle cx="640" cy="560" r="2.5"/>
+  </g>
+
+  <!-- GLOWING NODES: highlighted via points -->
+  <g filter="url(#g1)">
+    <circle cx="400" cy="80"  r="4" fill="rgba(255,230,210,0.72)"/>
+    <circle cx="400" cy="160" r="4" fill="rgba(255,230,210,0.72)"/>
+    <circle cx="640" cy="160" r="4" fill="rgba(255,230,210,0.68)"/>
+    <circle cx="640" cy="240" r="4" fill="rgba(255,230,210,0.66)"/>
+    <circle cx="480" cy="240" r="4" fill="rgba(255,230,210,0.66)"/>
+    <circle cx="720" cy="400" r="4" fill="rgba(255,230,210,0.66)"/>
+    <circle cx="640" cy="480" r="4" fill="rgba(255,230,210,0.68)"/>
+    <circle cx="80"  cy="480" r="4" fill="rgba(255,230,210,0.66)"/>
+    <circle cx="560" cy="400" r="4" fill="rgba(255,230,210,0.66)"/>
+    <circle cx="160" cy="320" r="4" fill="rgba(255,230,210,0.64)"/>
+    <circle cx="480" cy="320" r="4" fill="rgba(255,230,210,0.64)"/>
+  </g>
+
+  <!-- STRONG GLOW on key signal nodes -->
+  <g filter="url(#g2)">
+    <circle cx="400" cy="160" r="5.5" fill="rgba(255,200,170,0.46)"/>
+    <circle cx="640" cy="480" r="5.5" fill="rgba(255,200,170,0.44)"/>
+    <circle cx="720" cy="400" r="5.5" fill="rgba(255,200,170,0.42)"/>
+    <circle cx="80"  cy="480" r="5"   fill="rgba(255,200,170,0.4)"/>
+    <circle cx="480" cy="240" r="5"   fill="rgba(255,200,170,0.4)"/>
+  </g>
+
+  <!-- IC COMPONENT OUTLINES -->
+  <g stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="rgba(255,255,255,0.04)">
+    <rect x="344" y="184" width="72" height="52" rx="3"/>
+    <rect x="504" y="344" width="52" height="52" rx="3"/>
+    <rect x="104" y="344" width="52" height="52" rx="3"/>
+    <rect x="664" y="184" width="52" height="52" rx="3"/>
+  </g>
+
+  <!-- IC PINS -->
+  <g stroke="rgba(255,255,255,0.22)" stroke-width="1">
+    <line x1="332" y1="198" x2="344" y2="198"/>
+    <line x1="332" y1="212" x2="344" y2="212"/>
+    <line x1="332" y1="226" x2="344" y2="226"/>
+    <line x1="416" y1="198" x2="428" y2="198"/>
+    <line x1="416" y1="212" x2="428" y2="212"/>
+    <line x1="416" y1="226" x2="428" y2="226"/>
+    <line x1="492" y1="358" x2="504" y2="358"/>
+    <line x1="492" y1="374" x2="504" y2="374"/>
+    <line x1="556" y1="358" x2="568" y2="358"/>
+    <line x1="556" y1="374" x2="568" y2="374"/>
+    <line x1="92"  y1="358" x2="104" y2="358"/>
+    <line x1="92"  y1="374" x2="104" y2="374"/>
+    <line x1="156" y1="358" x2="168" y2="358"/>
+    <line x1="156" y1="374" x2="168" y2="374"/>
+    <line x1="652" y1="198" x2="664" y2="198"/>
+    <line x1="652" y1="212" x2="664" y2="212"/>
+    <line x1="716" y1="198" x2="728" y2="198"/>
+    <line x1="716" y1="212" x2="728" y2="212"/>
+  </g>
+</svg>

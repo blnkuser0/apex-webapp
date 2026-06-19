@@ -32,7 +32,7 @@ export default function ProductsCarousel() {
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
   return (
-    <section className="bg-[#1a1a1a] py-12 lg:py-16">
+    <section className="bg-[#c01130] py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12">
 
@@ -41,7 +41,7 @@ export default function ProductsCarousel() {
             <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
               Our Products
             </h2>
-            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
+            <p className="text-white/75 text-xs sm:text-sm leading-relaxed">
               We deliver excellence through our partner brands.
             </p>
           </div>

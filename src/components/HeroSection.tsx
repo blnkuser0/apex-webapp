@@ -12,7 +12,13 @@ export default function HeroSection() {
         <div className="hero-red-panel relative z-20 flex min-h-[500px] items-center overflow-hidden px-6 py-14 sm:min-h-[560px] sm:px-10 lg:absolute lg:inset-y-0 lg:left-0 lg:min-h-0 lg:w-[50vw] lg:px-[7.5vw] lg:py-0">
           <div className="absolute inset-0 bg-[#c01130]" />
           <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(89,32,43,0.42),transparent_48%),radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.2),transparent_2px),radial-gradient(circle_at_66%_68%,rgba(255,255,255,0.16),transparent_2px)]" />
-          <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:58px_58px]" />
+          {/* Circuit board tech background */}
+          <img
+            src="/circuit-bg.svg"
+            alt=""
+            aria-hidden
+            className="absolute inset-0 h-full w-full object-cover opacity-45 pointer-events-none select-none"
+          />
           <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#8c1b2f]/75 to-transparent" />
 
           <div className="relative z-10 w-full max-w-[430px] text-white">

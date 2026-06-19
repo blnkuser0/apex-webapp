@@ -1,0 +1,114 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+
+const navLinks = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Solutions", href: "#solutions" },
+  { label: "Industries", href: "#industries" },
+  { label: "Projects", href: "#projects" },
+  { label: "Careers", href: "#careers" },
+  { label: "Contact", href: "#contact" },
+];
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 bg-white ${
+        scrolled ? "shadow-md" : ""
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between h-16">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 select-none">
+          <div className="relative flex h-9 w-11 items-end">
+            <span className="text-[34px] font-black leading-none tracking-[-0.08em] text-[#c01130]">
+              A
+            </span>
+            <span className="absolute bottom-1 right-0 h-7 w-3 rotate-45 bg-[#0f9f6e]" />
+            <span className="absolute bottom-1.5 right-1 h-4 w-3 rotate-45 bg-white" />
+          </div>
+          <div className="flex flex-col leading-none">
+            <span className="text-[21px] font-black tracking-tight text-[#c01130]">
+              APEX
+            </span>
+            <span className="text-[8px] font-bold tracking-[0.2em] text-[#59202b] uppercase">
+              INNOVATIONS
+            </span>
+          </div>
+        </Link>
+
+        {/* Desktop navigation */}
+        <ul className="hidden lg:flex items-center gap-7">
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="text-[13px] font-semibold text-gray-700 transition-colors hover:text-[#c01130]"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {/* CTA button */}
+        <Link
+          href="#contact"
+          className="hidden items-center rounded bg-[#c01130] px-5 py-2.5 text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#8c1b2f] lg:inline-flex whitespace-nowrap"
+        >
+          REQUEST A CONSULTATION
+        </Link>
+
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className="lg:hidden p-2 text-gray-700"
+          aria-label="Toggle navigation menu"
+        >
+          {menuOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-100 px-6 py-5 shadow-lg">
+          <ul className="flex flex-col gap-5">
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                <Link
+                  href={link.href}
+                  className="block text-sm font-semibold text-gray-700 hover:text-[#c01130]"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="#contact"
+                className="inline-flex items-center rounded bg-[#c01130] px-5 py-2.5 text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#8c1b2f]"
+                onClick={() => setMenuOpen(false)}
+              >
+                REQUEST A CONSULTATION
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
+    </header>
+  );
+}

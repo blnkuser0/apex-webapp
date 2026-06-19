@@ -1,21 +1,44 @@
 "use client";
 
 import { useCallback, useMemo } from "react";
+import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const brands = [
-  { name: "Linksys", color: "#0033a0" },
-  { name: "Samsung", color: "#1428A0" },
-  { name: "logitech", accentColor: "#00B140", nameColor: "#000000" },
-  { name: "Cisco", color: "#1ba0d7" },
-  { name: "Grandstream", color: "#005BAA" },
-  { name: "VS>", color: "#CC0000" },
-  { name: "Hikvision", color: "#C40000" },
-  { name: "Epson", color: "#003087" },
-  { name: "Fortinet", color: "#EE3124" },
-  { name: "Acer", color: "#83b81a" },
+  { name: "Acer", src: "/logo/brand-logo/Acer.png" },
+  { name: "Adata", src: "/logo/brand-logo/Adata.png" },
+  { name: "APC", src: "/logo/brand-logo/APC.png" },
+  { name: "Asenware", src: "/logo/brand-logo/Asenware.png" },
+  { name: "Asus", src: "/logo/brand-logo/Asus.png" },
+  { name: "Barco", src: "/logo/brand-logo/Barco.png" },
+  { name: "Bose", src: "/logo/brand-logo/Bose.jpg" },
+  { name: "Canovate", src: "/logo/brand-logo/Canovate.png" },
+  { name: "Cisco", src: "/logo/brand-logo/Cisco.png" },
+  { name: "Epson", src: "/logo/brand-logo/Epson.png" },
+  { name: "Gigabyte", src: "/logo/brand-logo/Gigabyte.png" },
+  { name: "GMKtec", src: "/logo/brand-logo/GMKtec.png" },
+  { name: "Grandstream", src: "/logo/brand-logo/Grandstream.png" },
+  { name: "Hikvision", src: "/logo/brand-logo/Hikvision.png" },
+  { name: "HP", src: "/logo/brand-logo/HP.png" },
+  { name: "Intel", src: "/logo/brand-logo/Intel.png" },
+  { name: "Jabra", src: "/logo/brand-logo/Jabra.png" },
+  { name: "Kingston", src: "/logo/brand-logo/Kingston.png" },
+  { name: "Lenovo", src: "/logo/brand-logo/Lenovo.png" },
+  { name: "LG", src: "/logo/brand-logo/LG.png" },
+  { name: "Linksys", src: "/logo/brand-logo/Linksys.png" },
+  { name: "Logitech", src: "/logo/brand-logo/Logitech.png" },
+  { name: "MSI", src: "/logo/brand-logo/MSI.png" },
+  { name: "Panduit", src: "/logo/brand-logo/Panduit.png" },
+  { name: "Samsung", src: "/logo/brand-logo/Samsung.png" },
+  { name: "Seagate", src: "/logo/brand-logo/Seagate.png" },
+  { name: "Sennheiser", src: "/logo/brand-logo/Sennheiser.png" },
+  { name: "Siemon", src: "/logo/brand-logo/Siemon.png" },
+  { name: "Starlink", src: "/logo/brand-logo/Starlink.png" },
+  { name: "Viewsonic", src: "/logo/brand-logo/Viewsonic.png" },
+  { name: "VSSP", src: "/logo/brand-logo/VSSP.png" },
+  { name: "Xigmatek", src: "/logo/brand-logo/Xigmatek.png" },
 ];
 
 export default function ProductsCarousel() {
@@ -37,9 +60,9 @@ export default function ProductsCarousel() {
         <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-12">
 
           {/* Left — text block */}
-          <div className="lg:w-52 shrink-0">
+          <div className="w-full shrink-0 text-center lg:w-52 lg:text-left">
             <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
-              Our Products
+              Our Brands
             </h2>
             <p className="text-white/75 text-xs sm:text-sm leading-relaxed">
               We deliver excellence through our partner brands.
@@ -66,12 +89,13 @@ export default function ProductsCarousel() {
                     className="shrink-0 bg-white rounded shadow-sm flex items-center justify-center px-5 h-18 sm:h-20"
                     style={{ minWidth: "120px" }}
                   >
-                    <span
-                      className="text-sm sm:text-base font-black tracking-tight"
-                      style={{ color: brand.color ?? brand.nameColor }}
-                    >
-                      {brand.name}
-                    </span>
+                    <Image
+                      src={brand.src}
+                      alt={`${brand.name} logo`}
+                      width={120}
+                      height={56}
+                      className="h-10 w-auto object-contain"
+                    />
                   </div>
                 ))}
               </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -9,8 +10,6 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Solutions", href: "#solutions" },
   { label: "Industries", href: "#industries" },
-  { label: "Projects", href: "#projects" },
-  { label: "Careers", href: "#careers" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -32,22 +31,15 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between h-16">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 select-none">
-          <div className="relative flex h-9 w-11 items-end">
-            <span className="text-[34px] font-black leading-none tracking-[-0.08em] text-[#c01130]">
-              A
-            </span>
-            <span className="absolute bottom-1 right-0 h-7 w-3 rotate-45 bg-[#0f9f6e]" />
-            <span className="absolute bottom-1.5 right-1 h-4 w-3 rotate-45 bg-white" />
-          </div>
-          <div className="flex flex-col leading-none">
-            <span className="text-[21px] font-black tracking-tight text-[#c01130]">
-              APEX
-            </span>
-            <span className="text-[8px] font-bold tracking-[0.2em] text-[#59202b] uppercase">
-              INNOVATIONS
-            </span>
-          </div>
+        <Link href="/" className="flex items-center select-none">
+          <Image
+            src="/logo/ap_logo.png"
+            alt="Apex Innovations logo"
+            width={176}
+            height={46}
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop navigation */}

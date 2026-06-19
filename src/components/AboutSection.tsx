@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Quote } from "lucide-react";
 
 export default function AboutSection() {
@@ -9,13 +10,13 @@ export default function AboutSection() {
           {/* Left — company image */}
           <div className="lg:col-span-1">
             <div className="w-full h-56 sm:h-64 lg:h-72 bg-gray-100 rounded overflow-hidden relative border border-gray-200">
-              {/* Replace with actual company image using next/image */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <div className="w-16 h-16 rounded-full bg-gray-300 mb-2 flex items-center justify-center">
-                  <span className="text-xl font-black text-[#c01130]">A</span>
-                </div>
-                <span className="text-xs text-gray-400">Company Photo</span>
-              </div>
+              <Image
+                src="/img/sample-pic.jpg"
+                alt="Apex Innovations company photo"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 33vw"
+              />
             </div>
           </div>
 
@@ -61,17 +62,14 @@ export default function AboutSection() {
           <div className="lg:col-span-1 bg-[#59202b] rounded p-6 sm:p-7 text-white flex flex-col gap-4">
             <Quote size={32} className="text-white/60 fill-white/20" />
             <div>
-              <p className="text-[10px] font-bold tracking-[0.18em] uppercase text-white/70 mb-2">
-                Message from our CEO
-              </p>
               <p className="text-sm leading-relaxed text-white/90">
                 Our commitment is to deliver innovative solutions that empower
                 our clients to succeed in a rapidly changing digital world.
               </p>
             </div>
             <div className="pt-4 border-t border-white/20">
-              <p className="text-sm font-bold text-white">Lemuel Podevida</p>
-              <p className="text-xs text-white/70">CEO and CTO</p>
+              <p className="text-sm font-bold text-white">Lemuel Pondevida</p>
+              <p className="text-xs text-white/70">GM & CTO</p>
             </div>
           </div>
 

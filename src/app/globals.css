@@ -37,11 +37,3 @@ body {
 .hero-slant-line {
   display: none;
 }
-
-@media (min-width: 1024px) {
-  .hero-red-panel {
-    clip-path: polygon(0 0, 100% 0, 76% 100%, 0% 100%);
-  }
-
-
-}

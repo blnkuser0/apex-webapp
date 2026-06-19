@@ -1,4 +1,5 @@
 import { Clock, Globe, Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const solutions = [
@@ -26,28 +27,20 @@ const quickLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#c01130] text-white/75">
+    <footer className="bg-linear-to-br from-black via-zinc-900 to-neutral-700 text-white/75">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-10">
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6 lg:gap-8">
           <div className="col-span-2 sm:col-span-3 lg:col-span-1">
-            <div className="mb-2 flex items-center gap-2">
-              <div className="relative flex h-10 w-12 items-end">
-                <span className="text-[38px] font-black leading-none tracking-[-0.08em] text-white">
-                  A
-                </span>
-                <span className="absolute bottom-1 right-0 h-8 w-3 rotate-45 bg-[#0f9f6e]" />
-                <span className="absolute bottom-1.5 right-1 h-5 w-3 rotate-45 bg-[#c01130]" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-[22px] font-black tracking-tight text-white">
-                  APEX
-                </span>
-                <span className="text-[8px] font-bold uppercase tracking-[0.2em] text-white/70">
-                  INNOVATIONS
-                </span>
-              </div>
+            <div className="mb-2 flex items-center justify-center gap-2 lg:-ml-6 lg:justify-start">
+              <Image
+                src="/logo/test_processed.png"
+                alt="Apex Innovations logo"
+                width={680}
+                height={118}
+                className="block h-auto w-full max-w-64 object-contain sm:max-w-80 lg:max-w-110"
+              />
             </div>
-            <p className="mt-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-white/50">
+            <p className="mt-1 w-full max-w-64 text-center text-[8px] font-semibold uppercase tracking-normal text-white sm:max-w-80 lg:-ml-8 lg:max-w-80 lg:text-left lg:text-[9px] lg:whitespace-nowrap">
               Powerhouse of Transformative Solutions
             </p>
           </div>
@@ -99,9 +92,12 @@ export default function Footer() {
                   1105
                 </span>
               </li>
-              <li className="flex items-center gap-1.5">
-                <Phone size={11} className="shrink-0 text-white" />
-                <span className="text-[11px]">63+ 00000000000</span>
+              <li className="flex items-start gap-1.5">
+                <Phone size={11} className="mt-0.5 shrink-0 text-white" />
+                <div className="flex flex-col leading-snug">
+                  <span className="text-[11px]">(02) 8527 6700</span>
+                  <span className="text-[11px]">+63 929 725 0669</span>
+                </div>
               </li>
               <li className="flex items-center gap-1.5">
                 <Mail size={11} className="shrink-0 text-white" />

@@ -1,15 +1,5 @@
-import Navbar from "@/components/Navbar";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import HomePageContent from "@/components/HomePageContent";
 
 export default function ContactPage() {
-  return (
-    <>
-      <Navbar />
-      <main className="pt-16">
-        <ContactSection />
-      </main>
-      <Footer />
-    </>
-  );
+  return <HomePageContent />;
 }

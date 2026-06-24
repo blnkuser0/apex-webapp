@@ -1,38 +1,26 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
-const possibleQuestions = [
-  "How does the product subscription or licensing work?",
-  "How does the POC for these specific solutions work?",
-  "How many existing clients using this solutions?",
-  "What is your edge to your competitors?",
-  "Do government agencies use this product?",
-  "Do you provide training to clients?",
-  "Do you provide 24/7 support?",
-  "Can we integrate this specific product to our existing solution that we're using?",
-  "What is your SLA in case of support?",
-  "How can your solutions help our company?",
-];
-
 const phRegions = [
-  "NCR – National Capital Region",
-  "Region I – Ilocos Region",
-  "Region II – Cagayan Valley",
-  "Region III – Central Luzon",
-  "Region IV-A – CALABARZON",
-  "Region IV-B – MIMAROPA",
-  "Region V – Bicol Region",
-  "Region VI – Western Visayas",
-  "Region VII – Central Visayas",
-  "Region VIII – Eastern Visayas",
-  "Region IX – Zamboanga Peninsula",
-  "Region X – Northern Mindanao",
-  "Region XI – Davao Region",
-  "Region XII – SOCCSKSARGEN",
-  "Region XIII – Caraga",
+  "NCR - National Capital Region",
+  "Region I - Ilocos Region",
+  "Region II - Cagayan Valley",
+  "Region III - Central Luzon",
+  "Region IV-A - CALABARZON",
+  "Region IV-B - MIMAROPA",
+  "Region V - Bicol Region",
+  "Region VI - Western Visayas",
+  "Region VII - Central Visayas",
+  "Region VIII - Eastern Visayas",
+  "Region IX - Zamboanga Peninsula",
+  "Region X - Northern Mindanao",
+  "Region XI - Davao Region",
+  "Region XII - SOCCSKSARGEN",
+  "Region XIII - Caraga",
   "BARMM",
-  "CAR – Cordillera Administrative Region",
+  "CAR - Cordillera Administrative Region",
 ];
 
 export default function ContactSection() {
@@ -52,6 +40,8 @@ export default function ContactSection() {
     address: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -59,59 +49,80 @@ export default function ContactSection() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        setError(data.error || "Something went wrong. Please try again.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
-    "w-full rounded border border-gray-200 bg-white/90 px-3 py-2.5 text-sm text-gray-800 placeholder:text-gray-400 focus:outline-none focus:border-[#c01130] focus:ring-1 focus:ring-[#c01130] transition-colors";
-  const labelClass = "block text-xs font-semibold text-gray-700 mb-1";
+    "w-full rounded border border-gray-200 bg-white/90 px-3 py-1.5 text-xs text-gray-800 placeholder:text-gray-400 transition-colors focus:border-[#c01130] focus:outline-none focus:ring-1 focus:ring-[#c01130] sm:py-2 sm:text-sm";
+  const labelClass = "mb-1 block text-[11px] font-semibold text-gray-700";
 
   return (
-    <section id="contact" className="relative py-16 lg:py-20 bg-[#c01130] overflow-hidden">
-      {/* Circuit board background */}
-      <img
-        src="/circuit-bg.svg"
-        alt=""
-        aria-hidden
-        className="absolute inset-0 h-full w-full object-cover opacity-40 pointer-events-none select-none"
-      />
-      {/* Background decorative shape */}
-      <div className="absolute right-0 bottom-0 w-64 h-64 opacity-10 pointer-events-none">
-        <div
-          className="w-full h-full"
-          style={{
-            background:
-              "radial-gradient(circle at center, white 0%, transparent 70%)",
-          }}
-        />
-      </div>
+    <section
+      id="contact"
+      className="relative overflow-hidden bg-[#c01130] bg-cover bg-center bg-no-repeat py-8 sm:py-10 lg:py-12"
+      style={{ backgroundImage: "url('/img/contact-section.png')" }}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="mx-auto mb-6 max-w-5xl text-center lg:mb-8">
+          <h2 className="mb-2 text-2xl font-semibold leading-tight text-white sm:text-3xl lg:text-[34px]">
+            Let's Build the Right Solution for You
+          </h2>
+          <p className="text-sm font-light leading-relaxed text-white/95 sm:text-base">
+            Share a few details and our specialists will get in touch to
+            understand your needs and recommend exceptional solutions.
+          </p>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left — form */}
-          <div>
-            <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">
-              Connect with our expert.
-            </h2>
-            <p className="text-white/80 text-sm mb-8">
-              Fill out the form to share your feedback or request about our
-              solutions.
-            </p>
+        <div className="mx-auto grid max-w-[980px] grid-cols-1 items-center justify-center gap-5 lg:grid-cols-2 lg:gap-8">
+          <div className="mx-auto w-full max-w-[460px]">
+            <Image
+              src="/img/contact-group.png"
+              alt="What you will get"
+              width={460}
+              height={472}
+              className="h-auto w-full rounded-lg"
+              sizes="(max-width: 1024px) 100vw, 30vw"
+            />
+          </div>
 
+          <div className="mx-auto w-full max-w-[460px]">
             {submitted ? (
-              <div className="bg-white/10 border border-white/30 rounded p-8 text-center">
-                <p className="text-white font-bold text-lg mb-2">
+              <div className="rounded border border-white/30 bg-white/10 p-8 text-center">
+                <p className="mb-2 text-lg font-bold text-white">
                   Thank you for reaching out!
                 </p>
-                <p className="text-white/80 text-sm">
+                <p className="text-sm text-white/80">
                   Our team will get back to you within 24 hours.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-white rounded-lg p-4 sm:p-6 shadow-xl">
-                <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <form
+                onSubmit={handleSubmit}
+                className="rounded-lg bg-white p-4 shadow-xl"
+              >
+                <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
                   <div>
                     <label className={labelClass}>
                       First Name <span className="text-[#c01130]">*</span>
@@ -190,7 +201,7 @@ export default function ContactSection() {
                       className={inputClass}
                     />
                   </div>
-                  <div className="col-span-2">
+                  <div className="sm:col-span-2">
                     <label className={labelClass}>
                       Company <span className="text-[#c01130]">*</span>
                     </label>
@@ -223,9 +234,9 @@ export default function ContactSection() {
                       className={inputClass}
                     >
                       <option value="">Select...</option>
-                      {phRegions.map((r) => (
-                        <option key={r} value={r}>
-                          {r}
+                      {phRegions.map((region) => (
+                        <option key={region} value={region}>
+                          {region}
                         </option>
                       ))}
                     </select>
@@ -275,32 +286,26 @@ export default function ContactSection() {
                     />
                   </div>
                 </div>
-                <div className="mt-5">
+
+                {error && (
+                  <p className="mt-3 text-sm font-medium text-red-600">
+                    {error}
+                  </p>
+                )}
+
+                <div className="mt-4">
                   <button
                     type="submit"
-                    className="w-full py-3 bg-[#c01130] text-white text-sm font-bold tracking-wide rounded hover:bg-[#8c1b2f] transition-colors"
+                    disabled={loading}
+                    className="w-full rounded bg-[#c01130] py-2.5 text-sm font-bold tracking-wide text-white transition-colors hover:bg-[#8c1b2f] disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    Submit
+                    {loading ? "Sending..." : "Submit"}
                   </button>
                 </div>
               </form>
             )}
           </div>
 
-          {/* Right — possible questions */}
-          <div className="text-white">
-            <h3 className="text-lg font-bold mb-6">
-              Possible questions discussed You can expect:
-            </h3>
-            <ul className="flex flex-col gap-3">
-              {possibleQuestions.map((q, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-white mt-1.5 shrink-0" />
-                  <span className="text-sm text-white/90 leading-relaxed">{q}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
       </div>
     </section>

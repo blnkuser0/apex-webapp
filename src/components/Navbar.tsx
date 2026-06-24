@@ -4,13 +4,14 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import ScrollLink from "./ScrollLink";
 
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "Industries", href: "/industries" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", sectionId: "home" },
+  { label: "About", sectionId: "about" },
+  { label: "Solutions", sectionId: "solutions" },
+  { label: "Industries", sectionId: "industries" },
+  { label: "Contact", sectionId: "contact" },
 ];
 
 export default function Navbar() {
@@ -46,23 +47,23 @@ export default function Navbar() {
         <ul className="hidden lg:flex items-center gap-7">
           {navLinks.map((link) => (
             <li key={link.label}>
-              <Link
-                href={link.href}
+              <ScrollLink
+                sectionId={link.sectionId}
                 className="text-[13px] font-semibold text-gray-700 transition-colors hover:text-[#c01130]"
               >
                 {link.label}
-              </Link>
+              </ScrollLink>
             </li>
           ))}
         </ul>
 
         {/* CTA button */}
-        <Link
-          href="/contact"
+        <ScrollLink
+          sectionId="contact"
           className="hidden items-center rounded bg-[#c01130] px-5 py-2.5 text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#8c1b2f] lg:inline-flex whitespace-nowrap"
         >
           REQUEST A CONSULTATION
-        </Link>
+        </ScrollLink>
 
         {/* Mobile hamburger */}
         <button
@@ -80,23 +81,23 @@ export default function Navbar() {
           <ul className="flex flex-col gap-5">
             {navLinks.map((link) => (
               <li key={link.label}>
-                <Link
-                  href={link.href}
+                <ScrollLink
+                  sectionId={link.sectionId}
                   className="block text-sm font-semibold text-gray-700 hover:text-[#c01130]"
                   onClick={() => setMenuOpen(false)}
                 >
                   {link.label}
-                </Link>
+                </ScrollLink>
               </li>
             ))}
             <li>
-              <Link
-                href="/contact"
+              <ScrollLink
+                sectionId="contact"
                 className="inline-flex items-center rounded bg-[#c01130] px-5 py-2.5 text-xs font-bold tracking-wide text-white transition-colors hover:bg-[#8c1b2f]"
                 onClick={() => setMenuOpen(false)}
               >
                 REQUEST A CONSULTATION
-              </Link>
+              </ScrollLink>
             </li>
           </ul>
         </div>

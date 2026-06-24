@@ -1,6 +1,6 @@
 import { Clock, Globe, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import ScrollLink from "./ScrollLink";
 
 const solutions = [
   "Network Connectivity & Security",
@@ -18,11 +18,10 @@ const solutions = [
 ];
 
 const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Projects", href: "/projects" },
-  { label: "Industries", href: "/industries" },
-  { label: "News & Insights", href: "/news-insights" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "About Us", sectionId: "about" },
+  { label: "Solutions", sectionId: "solutions" },
+  { label: "Industries", sectionId: "industries" },
+  { label: "Contact Us", sectionId: "contact" },
 ];
 
 export default function Footer() {
@@ -53,13 +52,13 @@ export default function Footer() {
             </h4>
             <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
               {solutions.map((solution) => (
-                <Link
+                <ScrollLink
                   key={solution}
-                  href="/solutions"
+                  sectionId="solutions"
                   className="text-[11px] leading-snug text-white/75 transition-colors hover:text-white"
                 >
                   {solution}
-                </Link>
+                </ScrollLink>
               ))}
             </div>
           </div>
@@ -71,12 +70,12 @@ export default function Footer() {
             <ul className="flex flex-col gap-1.5">
               {quickLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
+                  <ScrollLink
+                    sectionId={link.sectionId}
                     className="text-[11px] text-white/75 transition-colors hover:text-white"
                   >
                     {link.label}
-                  </Link>
+                  </ScrollLink>
                 </li>
               ))}
             </ul>

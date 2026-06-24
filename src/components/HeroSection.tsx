@@ -1,58 +1,69 @@
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import ScrollLink from "./ScrollLink";
 
 export default function HeroSection() {
   return (
-    <section
-      id="home"
-      className="relative overflow-hidden bg-[#59202b] pt-16"
-    >
-      <div className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-[#59202b]">
-        <div className="hero-red-panel relative z-20 flex min-h-[calc(100vh-4rem)] items-center justify-center overflow-hidden px-6 py-14 sm:px-10 lg:px-[7.5vw] lg:py-0">
-          <div className="absolute inset-0 bg-[#c01130]" />
-          <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(89,32,43,0.42),transparent_48%),radial-gradient(circle_at_22%_18%,rgba(255,255,255,0.2),transparent_2px),radial-gradient(circle_at_66%_68%,rgba(255,255,255,0.16),transparent_2px)]" />
-          {/* Circuit board tech background */}
-          <img
-            src="/circuit-bg.svg"
-            alt=""
-            aria-hidden
-            className="absolute inset-0 h-full w-full object-cover opacity-45 pointer-events-none select-none"
-          />
-          <div className="absolute inset-x-0 bottom-0 hidden h-28 bg-linear-to-t from-[#8c1b2f]/75 to-transparent lg:block" />
+    <section id="home" className="relative overflow-hidden pt-16">
+      <div className="relative min-h-[calc(100vh-4rem)] flex items-center">
 
-          <div className="relative z-10 w-full max-w-4xl text-center text-white">
-            <div className="mb-5 flex items-center justify-center gap-3">
-              <div className="h-px w-8 bg-white" />
-              <span className="text-xs font-bold tracking-wide sm:text-sm">
+        {/* ── Background hero image ─────────────────────────── */}
+        <Image
+          src="/img/hero-section.png"
+          alt="Apex Innovations team"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+
+        {/* ── Bottom fade for depth ────────────────────────── */}
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-[#8c1b2f]/60 to-transparent" />
+
+        {/* ── Text content ─────────────────────────────────── */}
+        <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 xl:px-24 py-16 lg:py-0">
+          <div className="max-w-xl">
+
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-px bg-white/80" />
+              <span className="text-white/90 text-xs sm:text-sm font-semibold tracking-wide">
                 Welcome to Apex Innovations Inc.
               </span>
             </div>
 
-            <h1 className="mx-auto mb-7 max-w-4xl text-[42px] font-black leading-[0.98] tracking-tight sm:text-[58px] lg:text-[58px] xl:text-[62px]">
+            <h1 className="text-4xl sm:text-5xl lg:text-[56px] xl:text-[62px] font-black text-white leading-tight mb-6">
               Powerhouse of Transformative Solutions
             </h1>
 
-            <p className="mx-auto mb-9 max-w-3xl text-base font-bold leading-snug text-white/95 sm:text-lg">
+            <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-8 max-w-md">
               Empowering organizations through digital transformation, IT
               infrastructure, business solutions, and strategic technology
               services.
             </p>
 
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
-              <a
-                href="/contact"
-                className="inline-flex h-12 items-center justify-center gap-3 rounded bg-white px-5 text-[12px] font-black uppercase tracking-tight text-[#59202b] transition-colors hover:bg-[#edebf7]"
+            <div className="flex flex-col sm:flex-row gap-3">
+              <ScrollLink
+                sectionId="contact"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded
+                           bg-white px-6 text-xs font-black uppercase tracking-tight
+                           text-[#c01130] transition-colors hover:bg-gray-100"
               >
-                Lets Get Started <ArrowRight size={18} strokeWidth={3} />
-              </a>
-              <a
-                href="/about"
-                className="inline-flex h-12 items-center justify-center gap-3 rounded border-2 border-white px-5 text-[12px] font-black uppercase tracking-tight text-white transition-colors hover:bg-white hover:text-[#59202b]"
+                Lets Get Started <ArrowRight size={16} strokeWidth={3} />
+              </ScrollLink>
+              <ScrollLink
+                sectionId="about"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded
+                           border-2 border-white px-6 text-xs font-black uppercase
+                           tracking-tight text-white transition-colors
+                           hover:bg-white hover:text-[#c01130]"
               >
-                View Company Profile <ArrowRight size={18} strokeWidth={3} />
-              </a>
+                View Company Profile <ArrowRight size={16} strokeWidth={3} />
+              </ScrollLink>
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );
